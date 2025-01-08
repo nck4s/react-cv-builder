@@ -2,31 +2,30 @@ import React, { useState } from "react";
 import "../styles/GeneralInfo.css";
 
 function GeneralInfo() {
-    const [isEditing, setIsEditing] = useState(true);
-    const [info, setInfo] = useState({
-        name: '',
-        email: '',
-        phone: '';
-    });
-}
+  const [isEditing, setIsEditing] = useState(true);
+  const [info, setInfo] = useState({
+    name: "",
+    email: "",
+    phone: "",
+  });
 
-const handeChange = (e) => {
+  const handleChange = (e) => {
     const { name, value } = e.target;
     setInfo({ ...info, [name]: value });
-};
+  };
 
-const handleSubmit = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     setIsEditing(false);
-};
+  };
 
-const handleEdit = () => {
+  const handleEdit = () => {
     setIsEditing(true);
-};
+  };
 
-return (
+  return (
     <div className="general-info">
-         <h2>General Information</h2>
+      <h2>General Information</h2>
       {isEditing ? (
         <form onSubmit={handleSubmit}>
           <input
@@ -62,5 +61,6 @@ return (
       )}
     </div>
   );
+}
 
 export default GeneralInfo;
